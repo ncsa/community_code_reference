@@ -5,7 +5,7 @@ The documentation pages below mostly come from the **Blue Waters** "Community Co
 
 `CM1 rendered as Restructured Text <./CM1_rst/>`_
 
-`CM1 rendered as Markdown <./CM1_md/index.md>`_
+`CM1 rendered as Markdown (changed link) <./CM1_md/index.md>`_
 
 .. It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
    and offers a *simple* and *intuitive* API.
