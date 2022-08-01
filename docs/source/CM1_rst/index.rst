@@ -12,7 +12,7 @@ designed primarily for idealized research, particularly for deep
 precipitating convection (i.e., thunderstorms). CM1 is freely available
 to anybody that wants to use it, though restrictions on distribution
 `apply <http://www2.mmm.ucar.edu/people/bryan/cm1/getcode.html>`__. See
-CM1 home page┬áhttp://www2.mmm.ucar.edu/people/bryan/cm1/ for additional
+CM1 home page http://www2.mmm.ucar.edu/people/bryan/cm1/ for additional
 information.
 
 These instructions were tested with CM1 version 18 and 20.1. They may
@@ -48,12 +48,12 @@ summarizes what is described there.
 On Cray XE6 platform, CM1 can be built under the Cray environments as
 described in the Makefile. You can enable both NetCDF or HDF5 output by
 uncommenting the OUTPUTOPT option in the respective section of the
-Makefile in src/Makefie.┬á Uncomment the compiler options in the Blue
-Waters section (search for bluewaters) and remove -lfast_mv
-from┬áLINKOPTS since the libfast module is no longer supported. For
-version 18 you will also have to fix param.F in subroutine param, where
-the write directive is used incorrectly. For version 20.1 you will have
-to allow up to 1023 columns per line and reduce optimization level for
+Makefile in src/Makefie. Uncomment the compiler options in the Blue
+Waters section (search for bluewaters) and remove -lfast_mv from
+LINKOPTS since the libfast module is no longer supported. For version 18
+you will also have to fix param.F in subroutine param, where the write
+directive is used incorrectly. For version 20.1 you will have to allow
+up to 1023 columns per line and reduce optimization level for
 domaindiag.F to avoid compiler failures.
 
 ::
@@ -82,8 +82,8 @@ domaindiag.F to avoid compiler failures.
 
    # this sets the options on the command line rather than edit the Makefile
    # these options are for a pure MPI build (no OpenMP)
-   # There seem to be some missing dependency declarations in the Makefile
-   # leading to make aborting if build in parallel. You can use higher values
+   # There seem to be some missing dependency declarations in the Makefile 
+   # leading to make aborting if build in parallel. You can use higher values 
    # but might have to restart make if an error is detected.
    make FC=ftn OPTS="-I../include -O3 -Ovector3 -Oscalar3 -Othread3 -h noomp -N 1023" \
      LINKOPTS="" CPP="cpp -C -P -traditional" DM=-DMPI -j1
@@ -177,21 +177,21 @@ which will produce a file cm1.out which will contain lines like this
 E. Known issues
 ~~~~~~~~~~~~~~~
 
-For some (high resolution input), the model can┬áhang without giving an
-error message, until its time in the queue runs out.┬á To our knowledge,
+For some (high resolution input), the model can hang without giving an
+error message, until its time in the queue runs out. To our knowledge,
 it only occurs when one has chosen to use the Morrison microphysics
 routine.
 
-HereΓÇÖs what the output file looked like when that was happening:
+Here’s what the output file looked like when that was happening:
 
 ::
 
    --------------------
       nwrite =  1
-   Test_10m_0_000001_s.dat
-   Test_10m_0_000001_u.dat
-   Test_10m_0_000001_v.dat
-   Test_10m_0_000001_w.dat
+   Test_10m_0_000001_s.dat                                              
+   Test_10m_0_000001_u.dat                                              
+   Test_10m_0_000001_v.dat                                              
+   Test_10m_0_000001_w.dat                                              
         2d vars
         s vars
    -----------------
@@ -203,20 +203,20 @@ is not met, then it prints out this error message and stops the model:
 ::
 
    print *
-   ┬á print *,' Convergence cannot be reached in satadj2 subroutine.'
-   ┬á print *
-   ┬á print *,' This may be a problem with the algorithm in satadj2.'
-   ┬á print *,' However, the model may have became unstable somewhere'
-   ┬á print *,' else and the symptoms first appeared here.'
-   ┬á print *
-   ┬á print *,' Try decreasing the timestep (dtl and/or nsound).'
-   ┬á print *
-   ┬á print *,'┬á ... stopping cm1 ... '
-   ┬á print *
+     print *,' Convergence cannot be reached in satadj2 subroutine.'
+     print *
+     print *,' This may be a problem with the algorithm in satadj2.'
+     print *,' However, the model may have became unstable somewhere'
+     print *,' else and the symptoms first appeared here.'
+     print *
+     print *,' Try decreasing the timestep (dtl and/or nsound).'
+     print *
+     print *,'  ... stopping cm1 ... '
+     print *
 
 For some reason, at some resolutions this bit of code doesn't get
-executed, and things just hang, "spinning" down time in the queue. ┬áTo
-fix the problem (not the code), one must just increase his/her┬ávalue of
-the variable 'nsound' in the namelist.input file. ┬áIf the user has
+executed, and things just hang, "spinning" down time in the queue. To
+fix the problem (not the code), one must just increase his/her value of
+the variable 'nsound' in the namelist.input file. If the user has
 already maxed that out (I think a value up to 12 is allowed), then they
 must decrease the main timestep ('dtl') in namelist.input.
