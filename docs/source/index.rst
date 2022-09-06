@@ -9,6 +9,7 @@ Pages that are ported:
 
 `LAMMPS <./LAMMPS/>`_
 
+`HOOMD <./HOOMD/>`_
 
 Test Pages:
 -----------
