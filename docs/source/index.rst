@@ -3,17 +3,7 @@ NCSA Community Code Reference
 
 The documentation pages below mostly come from the **Blue Waters** "Community Code" portal reference pages, harvested during the summer of 2022.  This pages are maintained here for reference as to how codes were built, possibly as a future historical reference.  
 
-Pages that are ported:
-----------------------
-`NAMD <./NAMD/>`_
-
-`LAMMPS <./LAMMPS/>`_
-
-`HOOMD <./HOOMD/>`_
-
-`AMBER <./AMBER/>`_
-
-Test Pages:
+Test Pages (soon to be removed):
 -----------
 
 `CM1 rendered as Restructured Text <./CM1_rst/>`_
@@ -35,6 +25,8 @@ Contents
 
 .. toctree::
 
-   usage
-   api
+   AMBER/index
+   HOOMD/index
+   LAMMPS/index
    MOOSE/index
+   NAMD/index
