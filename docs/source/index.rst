@@ -37,4 +37,4 @@ Contents
 
    usage
    api
-   moose/index
+   MOOSE/index
