@@ -73,7 +73,7 @@ by hand.
 
          Drag the Blue Waters XML file over to the hosts window.
 
-.. image:: /image/image_gallery?uuid=eb6d41d4-1240-4999-aabf-48eb58b1bda0&groupId=10157&t=1400697834334
+.. image:: hostProfile2.png
 
 Note: this profile contains general settings and should work as-is, but
 could likely be better tailored to specific requirements/preferences. We
@@ -93,7 +93,7 @@ host profile by hand.
    and h2ologin#-duo.ncsa.illinois.edu below.** Blue Waters host
    settings:
 
-.. image:: /liferay-content/image-gallery/content/hostProfile3.png
+.. image:: hostProfile3.png
 
 | 
 | **Note:** For VisIt 3.X please use ``/sw/xe/visit/3.x`` for "Path to
@@ -106,15 +106,15 @@ host profile by hand.
    launch on a login node and should only be used when investigating
    very small test data.
 
-.. image:: /image/image_gallery?uuid=0422b4c3-836b-4ad5-a621-06ac976f2611&groupId=10157&t=1400697834335
+.. image:: hostProfile4.png
 
 Note: Adding another profile is done with the "New Profile" button.
 Beyond renaming, this was the only step necessary to create the serial
 launch profile.
 
--  Parallel launch profile:
+.. image:: hostProfile5.png
 
-| |image1|
+-  Parallel launch profile:
 
 | Queue: sets ``qsub -q``
 | Processors: sets ``aprun -n``
