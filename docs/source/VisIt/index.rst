@@ -45,7 +45,7 @@ by hand.
 -  Open the host profile window: under the Options pulldown menu, select
    "Host Profiles."
 
-.. image:: /image/image_gallery?uuid=7ceee87c-c7f9-49e6-a2f5-b0e8d2d6cd33&groupId=10157&t=1400697834333
+.. image:: ./hostProfile1.png
 
 -  Newer releases of VisIt allow you to download host configurations for
    many HPC centers. To utilize this feature:
