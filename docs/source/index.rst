@@ -23,5 +23,5 @@ Contents
    LAMMPS/index
    MOOSE/index
    NAMD/index
-   CM1_rst/
-   VisIt/
+   CM1_rst/index
+   VisIt/index
