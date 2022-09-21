@@ -2,8 +2,8 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
+project = 'NCSA Community Code Reference'
+copyright = '2022, University of Illinois
 author = 'Graziella'
 
 release = '0.1'
