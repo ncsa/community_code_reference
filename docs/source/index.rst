@@ -3,13 +3,6 @@ NCSA Community Code Reference
 
 The documentation pages below mostly come from the **Blue Waters** "Community Code" portal reference pages, harvested during the summer of 2022.  This pages are maintained here for reference as to how codes were built, possibly as a future historical reference.  
 
-Test Pages (soon to be removed):
------------
-
-`CM1 rendered as Restructured Text <./CM1_rst/>`_
-
-`CM1 rendered as Markdown (changed link) <./CM1_md/index.md>`_
-
 .. It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
    and offers a *simple* and *intuitive* API.
 
@@ -30,3 +23,5 @@ Contents
    LAMMPS/index
    MOOSE/index
    NAMD/index
+   CM1_rst/
+   VisIt/
