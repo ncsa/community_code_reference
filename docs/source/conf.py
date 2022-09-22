@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'NCSA Community Code Reference'
-copyright = '2022, University of Illinois
+copyright = '2022, University of Illinois'
 author = 'Graziella'
 
 release = '0.1'
