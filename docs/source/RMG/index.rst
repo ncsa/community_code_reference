@@ -323,6 +323,7 @@ demonstrate the use of RMG on Blue Waters.
 Sample run.pbs file for GPU code:
 
 :: 
+
    #!/bin/bash
    #PBS -j oe
    #PBS -l walltime=00:30:00
