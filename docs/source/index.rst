@@ -20,6 +20,7 @@ The documentation pages below mostly come from the **Blue Waters** "Community Co
    CM1_rst/index
    RMG/index
    WRF/index
+   YT/index
 
 Visualization Codes (VIS)
 ----------------------------
