@@ -20,7 +20,7 @@ The documentation pages below mostly come from the **Blue Waters** "Community Co
    CM1_rst/index
    RMG/index
    WRF/index
-   yt/index
+   
 
 Visualization Codes (VIS)
 ----------------------------
@@ -28,3 +28,8 @@ Visualization Codes (VIS)
 .. toctree::
 
    VisIt/index
+   yt/index
+   ParaView/index
+   IDL/index
+   DCV/index
+   
