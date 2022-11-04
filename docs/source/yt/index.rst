@@ -33,28 +33,24 @@ Example 1: Finding and Plotting Halos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following is a simple
-`script </c/document_library/get_file?uuid=47c6d129-8f22-424b-8637-503eebfb8844&groupId=10157>`__
-that opens a dataset, performs the halo finding operation on the data,
+script that opens a dataset, performs the halo finding operation on the data,
 creates a plot of the data, and finally annotates the plot where halos
 were found (with black circles):
 
-+-----------------------------------------------------------------+---+
-| ``from yt.mods import *``                                       |   |
-+-----------------------------------------------------------------+---+
-| ``pf = load("/sw/xe/yt/2.4/sles11.                              |   |
-| 1_gnu4.3.4/yt-2.4/yt-x86_64/src/yt-hg/tests/DD0043/data0043")`` |   |
-+-----------------------------------------------------------------+---+
-| ``halos = HaloFinder(pf)``                                      |   |
-+-----------------------------------------------------------------+---+
-| ``p = ProjectionPlot(pf, "z", "Density")``                      |   |
-+-----------------------------------------------------------------+---+
-| ``p.annotate_hop_circles(halos)``                               |   |
-+-----------------------------------------------------------------+---+
-| ``p.save()``                                                    |   |
-+-----------------------------------------------------------------+---+
+::
+
+  from yt.mods import *
+  pf = load("/sw/xe/yt/2.4/sles11.1_gnu4.3.4/yt-2.4/yt-x86_64/src/yt-hg/tests/DD0043/data0043")
+  halos = HaloFinder(pf)
+  p = ProjectionPlot(pf, "z", "Density")
+  p.annotate_hop_circles(halos)
+  p.save()
 
 The
-`result </image/image_gallery?uuid=595ee683-993f-47c2-84e3-b9b2d86c72cd&groupId=10157&t=1357853765583>`__:
+result:
+
+.. image:: ./data0043_Projection_x_Density.png
+
 a 2D projection plot that is saved to disk. In this image, areas
 corresponding to the location of found halos should be circled.
 
@@ -72,28 +68,18 @@ that we have linked to mpi4py. The following test
 calculates a max on some test data and then performs a projection plot,
 both of which are supported parallel operations:
 
-+-----------------------------------------------------------------+---+
-| ``from yt.mods import *``                                       |   |
-+-----------------------------------------------------------------+---+
-| ``from yt.config import ytcfg;``                                |   |
-+-----------------------------------------------------------------+---+
-| ``ytcfg["yt","serialize"] = "False"``                           |   |
-+-----------------------------------------------------------------+---+
-| ``pf = load("/sw/xe/yt/2.4/sles11.                              |   |
-| 1_gnu4.3.4/yt-2.4/yt-x86_64/src/yt-hg/tests/DD0043/data0043")`` |   |
-+-----------------------------------------------------------------+---+
-| ``print "---------------                                        |   |
-| -------" + str(ytcfg.getint("yt", "__topcomm_parallel_rank"))`` |   |
-+-----------------------------------------------------------------+---+
-| ``v, c = pf.h.find_max("Density")``                             |   |
-+-----------------------------------------------------------------+---+
-| ``print v, c``                                                  |   |
-+-----------------------------------------------------------------+---+
-| ``p = ProjectionPlot(pf, "x", "Density")``                      |   |
-+-----------------------------------------------------------------+---+
-| ``p.save()``                                                    |   |
-+-----------------------------------------------------------------+---+
+::
 
+  from yt.mods import *`
+  from yt.config import ytcfg;
+  ytcfg["yt","serialize"] = "False"
+  pf = load("/sw/xe/yt/2.4/sles11.1_gnu4.3.4/yt-2.4/yt-x86_64/src/yt-hg/tests/DD0043/data0043")
+  print "----------------------" + str(ytcfg.getint("yt", "__topcomm_parallel_rank"))
+  v, c = pf.h.find_max("Density")
+  print v, c
+  p = ProjectionPlot(pf, "x", "Density")
+  p.save()
+  
 Here
 is a batch script that may be used to run the above script:
 
@@ -114,7 +100,7 @@ During
 execution a each processor will print a hello world style message, and a
 resulting plot 
 
-.. image::./data0043_Projection_x_Density.png
+.. image:: ./data0043_Projection_z_Density.png
 
 will be saved to disk, this time along the x-axis so the results of both
 example scripts won't clobber each other.
