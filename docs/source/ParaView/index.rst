@@ -33,10 +33,12 @@ supports reverse connection of the server to the client over ssh. The
 paraview client version must match the pvserver version on Blue Waters.
 To see a list of currently available pvserver version on Blue Waters,
 enter:
+::
 
-``$ module list paraview``
+   $ module list paraview
 
 Obtaining a ParaView Client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Recommended version: 5.6.0
 
@@ -50,6 +52,7 @@ OS X users will need to install XQuartz and xterm from
 `https://www.xquartz.org <https://www.xquartz.org/>`__
 
 Connecting the ParaView Client to Blue Waters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Start the ParaView application. Click on the Connect icon:
 
@@ -62,9 +65,8 @@ or go to File \| Connect:
 
 Either of these will open the Choose Server Configuration dialog window:
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-fetch-servers.png
-   :alt: Choose Server Configuration dialog window with Fetch Servers
-   button highlighted.
+.. image:: ./paraview-client-fetch-servers.png
+   :alt: Choose Server Configuration dialog window with Fetch Server button highlighted.
 
 This will list any existing server configurations, but will be empty for
 a fresh client install. Click on the Fetch Servers button in the lower
@@ -72,9 +74,8 @@ right. This will grab a list of publically avalable server configuration
 files from Kitware, Inc. and display them in the Fetch Server
 Configurations dialog window.
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-import-selected.png
-   :alt: Fetch Server Configuration dialog window showing a highlighted
-   NCSA server configuration.
+.. image:: ./paraview-client-import-selected.png
+   :alt: Fetch Server Configuration dialog window showing a highlighted NCSA server configuration.
 
 Scroll to the the "NCSA Blue Waters" (or Linux/OS X) or "NCSA Blue
 Waters from Windows client" option, select and then click on the Import
@@ -92,13 +93,12 @@ And then using "Load Servers" instead of "Fetch Servers."
 Either fetching or loading should end up back in the Choose Server
 Configuration dialog. Select the NCSA configuration and click Connect.
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-connect.png
-   :alt: The Choose Server Configuration dialog with imported NCSA
-   configuration and highlighted Connect button.
+.. image:: ./paraview-client-connect.png
+   :alt: The Choose Server Configuration dialog with imported NCSA configuration and highlighted Connect button.
 
 This will open the Connections Options dialog window:
 
-.. image:: https://bluewaters.ncsa.illinois.edu/liferay-content/image-gallery/content/paraview-client-connection-options-with-login-node-field.png
+.. image:: ./paraview-client-connection-options-with-login-node-field.png
    :alt: The initial Connection Options dialog window.
 
 All options are required, unfortunately failure will happen upon job
@@ -140,9 +140,8 @@ standalone Unix-style binary.
 
 On Windows, this dialog will look slightly different.
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-plink-cmd.png
-   :alt: Windows version of the job options dialog showing plink and cmd
-   text entry boxes.
+.. image:: ./paraview-client-plink-cmd.png
+   :alt: Windows version of the job options dialog showing plink and cmd text entry boxes.
 
 These paths may need to use the 8.3 version of the directory names if
 they contains spaces. E.g., if plink.exe was installed in Program Files
@@ -152,7 +151,7 @@ Once the options are filled in, click OK. The Connection Options dialog
 will close. Two new windows will open, a Waiting for Server Connection
 and a terminal window for entering in your Blue Waters pin + tokencode.
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-waiting-for-server-connection.png
+.. image:: ./paraview-client-waiting-for-server-connection.png
    :alt: The Waiting for Server Connection and terminal windows.
 
 Enter your Blue Waters pin + tokencode and press Enter. The terminal
@@ -160,7 +159,7 @@ will execute an SSH command to execute a remote script given the
 options. As this script is called and the job submitted to the selected
 queue, some debugging information will be visible in the terminal.
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-submitted-job.png
+.. image:: ./paraview-client-submitted-job.png
    :alt: Display of submitted job options in the local terminal.
 
 If the job was submitted successfully, the client will wait for a
@@ -169,17 +168,15 @@ wait times the same as any non-visualization jobs. Once the job starts
 and the pvserver connects back to the client, the Pipeline Browser will
 display an icon showing that the client is connected to Blue Waters.
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-connected.png
-   :alt: View of the Pipeline Browser showing the connection to Blue
-   Waters.
+.. image:: ./paraview-client-connected.png
+   :alt: View of the Pipeline Browser showing the connection to Blue Waters.
 
 The Memory Inspector can be opened to verify that the remote server is
 indeed running with the requested number of processors. It can be opened
 from the client's View menu.
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-view-memory-inspector.png
-   :alt: Showing the Memory Inspector option in the View menu of the
-   ParaView client GUI.
+.. image:: ./paraview-client-view-memory-inspector.png
+   :alt: Showing the Memory Inspector option in the View menu of the ParaView client GUI.
 
 The Memory Inspector sits in a separate panel, which may be hidden
 behind another panel, for example, if the Color Map Editor is already
@@ -187,9 +184,8 @@ open. The display will show the client computer and Blue Waters and will
 have a series of bars underneath each showing the percentage of memory
 usage.
 
-.. image:: https://bluewaters.ncsa.illinois.edu/apps/img/paraview-client-memory-inspector.png
-   :alt: Close up of the Memory Inspector panel showing memory usage of
-   an active job on Blue Waters.
+.. image:: ./paraview-client-memory-inspector.png
+   :alt: Close up of the Memory Inspector panel showing memory usage of an active job on Blue Waters.
 
 Note that ParaView will not automatically distrubute serial files in
 most cases. The D3 filter can be used to naively distribute a serial
