@@ -297,95 +297,56 @@ demonstrate the use of RMG on Blue Waters.
 
    Sample run.pbs file for CPU code:
 
-.. container::
+::
 
-#!/bin/bash
+   #!/bin/bash
+   #PBS -j oe
+   #PBS -l walltime=00:30:00
+   #PBS -l nodes=2:ppn=32:xe
+   #PBS -q debug
+   #PBS -N ztest
 
-#PBS -j oe
+   source /opt/modules/default/init/bash
+   module swap PrgEnv-cray PrgEnv-gnu
+   module list
 
-#PBS -l walltime=00:30:00
+   export MPICH_MAX_THREAD_SAFETY=serialized
+   export OMP_WAIT_POLICY=passive
+   export MPICH_ENV_DISPLAY=1
+   export MPICH_ALLREDUCE_NO_SMP=1
+   export OMP_NUM_THREADS=16
 
-#PBS -l nodes=2:ppn=32:xe
+   cd$PBS_O_WORKDIR
 
-#PBS -q debug
+   aprun-n2-N1-d$OMP_NUM_THREADS$HOME/rmg/rmg-release1.2.0/build-cpu/rmg in.c60potential_acc
 
-#PBS -N ztest
+Sample run.pbs file for GPU code:
 
-source /opt/modules/default/init/bash
+:: 
+   #!/bin/bash
+   #PBS -j oe
+   #PBS -l walltime=00:30:00
+   #PBS -l nodes=2:ppn=16:xk
+   #PBS -q debug
+   #PBS -N ztest
+   
+   source /opt/modules/default/init/bash
 
-module swap PrgEnv-cray PrgEnv-gnu
+   module swap PrgEnv-cray PrgEnv-gnu
+   module list
+   export MPICH_MAX_THREAD_SAFETY=serialized
+   export OMP_WAIT_POLICY=passive
+   export MPICH_ENV_DISPLAY=1
+   export MPICH_ALLREDUCE_NO_SMP=1
+   export CRAY_CUDA_PROXY=1
+   export OMP_NUM_THREADS=16
+   
+   cd$PBS_O_WORKDIR
 
-module list
+   aprun -m6Gh -n 2 -N 1 -d $OMP_NUM_THREADS -cc numa_node $HOME/rmg/rmg-release1.2.0/build-gpu/rmg in.c60potential_acc
 
-export MPICH_MAX_THREAD_SAFETY=serialized
+Submit the job:
 
-export OMP_WAIT_POLICY=passive
-
-export MPICH_ENV_DISPLAY=1
-
-export MPICH_ALLREDUCE_NO_SMP=1
-
-export OMP_NUM_THREADS=16
-
-cd$PBS_O_WORKDIR
-
-.. container::
-
-   aprun-n2-N1-d$OMP_NUM_THREADS$HOME/rmg/rmg-release1.2.0/build-cpu/rmg
-   in.c60potential_acc
-
-.. container::
-
-.. container::
-
-   Sample run.pbs file for GPU code:
-
-.. container::
-   :name: cke_pastebin
-
-   .. container::
-
-   .. container::
-
-      #!/bin/bash
-
-      #PBS -j oe
-
-      #PBS -l walltime=00:30:00
-
-      #PBS -l nodes=2:ppn=16:xk
-
-      #PBS -q debug
-
-      #PBS -N ztest
-
-      source /opt/modules/default/init/bash
-
-      module swap PrgEnv-cray PrgEnv-gnu
-
-      module list
-
-      export MPICH_MAX_THREAD_SAFETY=serialized
-
-      export OMP_WAIT_POLICY=passive
-
-      export MPICH_ENV_DISPLAY=1
-
-      export MPICH_ALLREDUCE_NO_SMP=1
-
-      export CRAY_CUDA_PROXY=1
-
-      export OMP_NUM_THREADS=16
-
-      cd$PBS_O_WORKDIR
-
-      aprun -m6Gh -n 2 -N 1 -d $OMP_NUM_THREADS -cc numa_node
-      $HOME/rmg/rmg-release1.2.0/build-gpu/rmg in.c60potential_acc
-
-   .. container::
-
-   .. container::
-
-      Submit the job:
+:: 
 
    qsub run.pbs
