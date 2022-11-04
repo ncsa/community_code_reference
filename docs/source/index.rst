@@ -18,6 +18,8 @@ The documentation pages below mostly come from the **Blue Waters** "Community Co
    MOOSE/index
    NAMD/index
    CM1_rst/index
+   RMG/index
+   WRF/index
 
 Visualization Codes (VIS)
 ----------------------------
