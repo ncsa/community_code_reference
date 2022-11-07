@@ -11,16 +11,25 @@ The documentation pages below mostly come from the **Blue Waters** "Community Co
 
 
 .. toctree::
-
+   
    AMBER/index
+   CM1_rst/index
+   GROMACS/index
    HOOMD/index
    LAMMPS/index
-   MOOSE/index
    NAMD/index
-   CM1_rst/index
+   MOOSE/index
+   OpenFOAM/index
+   NWCHEM/index
+   PETSc/index
+   pio/index
+   QuantumEspresso/index   
    RMG/index
+   SLEPc/index
+   Swift/index
+   VASP/index
    WRF/index
-   
+
 
 Visualization Codes (VIS)
 ----------------------------
