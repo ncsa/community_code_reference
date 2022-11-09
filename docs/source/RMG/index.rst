@@ -27,26 +27,13 @@ version <http://sourceforge.net/projects/rmgdft/files/Releases/1.2/Binaries/Blue
 `GPU
 version <http://sourceforge.net/projects/rmgdft/files/Releases/1.2/Binaries/BlueWaters/rmg_GPU/download>`__
 
-.. container::
+Download and unpack the source code:
 
-   Download and unpack the source code:
+::
 
-.. container::
-
-.. container::
-
-   .. container::
-
-      mkdir $HOME/rmg
-
-   .. container::
-
-      wget
-      http://sourceforge.net/projects/rmgdft/files/Releases/1.2/Sources/rmg-release1.2.0.tar.gz/download
-
-   .. container::
-
-      tar zxvf rmg-release1.2.0.tar.gz
+   mkdir $HOME/rmg
+   wget http://sourceforge.net/projects/rmgdft/files/Releases/1.2/Sources/rmg-release1.2.0.tar.gz/download
+   tar zxvf rmg-release1.2.0.tar.gz
 
 C. How to build RMG
 ~~~~~~~~~~~~~~~~~~~
@@ -56,246 +43,107 @@ On Blue Waters, RMG can be built under GNU programming environment.
 C.1 Building the CPU-code under GNU environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. container::
 
    - Configure programming environment
 
-.. container::
-
-.. container::
+::
 
    module swap PrgEnv-cray PrgEnv-gnu
-
-.. container::
-
    module add fftw
-
-.. container::
-
    module add cmake
-
-.. container::
-
    module add boost
-
-.. container::
-
-.. container::
 
    - Run cmake and make after that
 
-.. container::
-
-.. container::
+::
 
    cd $HOME/rmg/rmg-release1.2.0
-
-.. container::
-
    mkdir build-cpu
-
-.. container::
-
    cd build-cpu
-
-.. container::
-
    cmake ..
-
-.. container::
-
    make -j 16
 
-.. container::
 
-   .. container::
 
-      .. container::
+   - Executable file **rmg** will be generated
 
-         .. container::
 
-         .. container::
+The latest successful compilation was conducted under the
+   following environment:
 
-            - Executable file **rmg** will be generated
-
-         .. container::
-
-         .. container::
-
-            .. container::
-
-               The latest successful compilation was conducted under the
-               following environment:
-
-.. container::
-
-   .. container::
-      :name: cke_pastebin
 
       PrgEnv-gnu/5.2.40
 
-   .. container::
-      :name: cke_pastebin
-
       gcc/4.8.2
-
-   .. container::
-      :name: cke_pastebin
 
       cray-mpich/7.2.0
 
-   .. container::
-      :name: cke_pastebin
-
       fftw/3.3.4.1
-
-   .. container::
 
       cmake/3.1.3
 
-   .. container::
-
       boost/1.53.0
 
-   .. container::
 
-      .. rubric:: C.2 Building the GPU-code under GNU environment
-         :name: c.2-building-the-gpu-code-under-gnu-environment
-
-      .. container::
-
+ C.2 Building the GPU-code under GNU environment
+ 
          - Configure programming environment
-
-      .. container::
-
-      .. container::
 
          module swap PrgEnv-cray PrgEnv-gnu
 
-      .. container::
-
          module add fftw
-
-      .. container::
 
          module add cmake
 
-      .. container::
-
          module add boost
-
-      .. container::
 
          module add cudatoolkit
 
-      .. container::
-
-      .. container::
-
-         - Run cmake and make after that
-
-      .. container::
-
-      .. container::
+- Run cmake and make after that
 
          cd $HOME/rmg/rmg-release1.2.0
 
-      .. container::
-
          mkdir build-gpu
-
-      .. container::
 
          cd build-gpu
 
-      .. container::
-
-      .. container::
-
-         - Edit ../CMakelists.txt and set RMG_GPU_ENABLED to 1
-
-      .. container::
-
-      .. container::
+- Edit ../CMakelists.txt and set RMG_GPU_ENABLED to 1
 
          - Run cmake and make after that
-
-      .. container::
-
-      .. container::
-
          cmake ..
-
-      .. container::
 
          make -j 16
 
-      .. container::
-
-         .. container::
-
-         .. container::
-
-            - Executable file **rmg** will be generated
-
-         .. container::
-
-         .. container::
+- Executable file **rmg** will be generated
 
             The latest successful compilation was conducted under the
             following environment:
 
-      .. container::
-
-         .. container::
-            :name: cke_pastebin
-
             PrgEnv-gnu/5.2.40
-
-         .. container::
-            :name: cke_pastebin
 
             gcc/4.8.2
 
-         .. container::
-            :name: cke_pastebin
-
             cray-mpich/7.2.0
-
-         .. container::
-            :name: cke_pastebin
 
             fftw/3.3.4.1
 
-         .. container::
-
             cmake/3.1.3
-
-         .. container::
 
             boost/1.53.0
 
-         .. container::
-
             cudatoolkit/6.5.14-1.0502.9613.6.1
 
-.. container::
-
-   .. rubric:: D. Tests
-      :name: d.-tests
+ D. Tests
 
 RMG source code comes with input examples. One of those will be used to
 demonstrate the use of RMG on Blue Waters.
 
-.. container::
+::
 
    cd $HOME/rmg/rmg-release1.2.0/Examples/C60/PotentialAcceleration
 
-.. container::
 
-.. container::
-
-   Sample run.pbs file for CPU code:
+Sample run.pbs file for CPU code:
 
 ::
 
