@@ -33,6 +33,8 @@ IDL can be used from compute nodes by creating a file with idl commands
 in it. For example place the following commands in a file called
 test.com.
 
+::
+
    data=sin(2.0*findgen(200)*!pi/25.0)*exp(-0.02*findgen(200))
    myplot = plot(data,BUFFER=1)
    myplot.save, "wiggle.png", HEIGHT=480,WIDTH=640
