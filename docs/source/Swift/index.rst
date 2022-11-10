@@ -47,15 +47,11 @@ there is a problem. The sample job setup looked like this when run from
 jyc where queue wait time is nearly zero, and this workflow ran on 2
 nodes:
 
-.. container::
+::
 
-   ``arnoldg@jyc1:~/scratch/swiftwork/io-run002/jobs/m> grep host */outdir/* \``
+   arnoldg@jyc1:~/scratch/swiftwork/io-run002/jobs/m> grep host */outdir/* | cut -d= -f2 | sort | uniq -c 12 nid00002 20 nid00003
 
-   ``| cut -d= -f2 | sort | uniq -c``
-   ``12 nid00002``
-   ``20 nid00003``
-
-.. image:: /image/image_gallery?uuid=4ed06a67-74a9-4735-b3c5-b629ece0fe8d&groupId=10157&t=1463605957500
+.. image:: ./swift-io1-2.jpg
 
 The workDirectory defined in your swift.conf will contained the results
 from running your swift workflow. In the example here, notice there's a
@@ -64,14 +60,15 @@ command line above. In each of those directories, further log, stderr
 and output may be found. The filesystem organization can be configured
 with changes to swift.conf.
 
-.. image:: /image/image_gallery?uuid=4c095a4f-a2e3-47fb-be72-6405e2d02e87&groupId=10157&t=1463605957500
+.. image:: ./swift-workDirectory-2.jpg
 
 Also corresponding to each run of swift (and task) is a directory
 hierarchy in the directory where you submitted the workflow. Very
 detailed logs will be stored there along with the job script that was
 built and submitted to the batch system.
 
-.. image:: /image/image_gallery?uuid=0fdd0ae1-f6be-4ccb-babc-43d66c948502&groupId=10157&t=1463605957500
+.. image:: swift-submitdir-2.jpg
+
 
 D. Read more about Swift.
 ~~~~~~~~~~~~~~~~~~~~~~~~~
