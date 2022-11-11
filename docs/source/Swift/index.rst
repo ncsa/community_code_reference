@@ -51,7 +51,7 @@ nodes:
 
    arnoldg@jyc1:~/scratch/swiftwork/io-run002/jobs/m> grep host */outdir/* | cut -d= -f2 | sort | uniq -c 12 nid00002 20 nid00003
 
-.. image:: ./swift-io1-2.jpg
+.. image:: ./swift-io1-2.jpeg
 
 The workDirectory defined in your swift.conf will contained the results
 from running your swift workflow. In the example here, notice there's a
@@ -60,14 +60,14 @@ command line above. In each of those directories, further log, stderr
 and output may be found. The filesystem organization can be configured
 with changes to swift.conf.
 
-.. image:: ./swift-workDirectory-2.jpg
+.. image:: ./swift-workDirectory-2.jpeg
 
 Also corresponding to each run of swift (and task) is a directory
 hierarchy in the directory where you submitted the workflow. Very
 detailed logs will be stored there along with the job script that was
 built and submitted to the batch system.
 
-.. image:: swift-submitdir-2.jpg
+.. image:: ./swift-submitdir-2.jpeg
 
 
 D. Read more about Swift.
