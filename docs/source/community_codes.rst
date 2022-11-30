@@ -17,7 +17,7 @@ The documentation pages below mostly come from the **Blue Waters** "Community Co
    NWCHEM/index
    PETSc/index
    pio/index
-   QuantumEspresso/index   
+   QE/index   
    RMG/index
    SLEPc/index
    Swift/index
