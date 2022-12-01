@@ -34,23 +34,17 @@ personal use.
 C.1 Building CPU version under GNU environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``cd $HOME``
+::
 
-# download Nwchem 6.6 source code using the link in section B above, or:
-
-``wget -O Nwchem-6.6.revision27746-src.2015-10-20.tar.gz http://www.nwchem-sw.org/download.php?f=Nwchem-6.6.revision27746-src.2015-10-20.tar.gz``
-
-``tar zxvf Nwchem-6.6.revision27746-src.2015-10-20.tar.gz``
-
-``# cd to "head" of install``
-
-``cd $HOME/nwchem-6.6``
-
-``#revert to pevious PE for GNU``
-
-``module unload PrgEnv-cray/5.2.82``
-
-``module load PrgEnv-gnu/5.2.82-gcc.4.9.3``
+   cd $HOME
+   # download Nwchem 6.6 source code using the link in section B above, or:
+   wget -O Nwchem-6.6.revision27746-src.2015-10-20.tar.gz http://www.nwchem-sw.org/download.php?f=Nwchem-6.6.revision27746-src.2015-10-20.tar.gz
+   tar zxvf Nwchem-6.6.revision27746-src.2015-10-20.tar.gz`
+   # cd to "head" of install
+   cd $HOME/nwchem-6.6
+   `#revert to pevious PE for GNU
+   module unload PrgEnv-cray/5.2.82
+   module load PrgEnv-gnu/5.2.82-gcc.4.9.3``
 
 ``module add craype-hugepages8M``
 
