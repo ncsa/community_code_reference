@@ -97,8 +97,53 @@ Successful compilation will create static executable: $HOME/nwchem-6.6/bin/LINUX
    # go back up to install location
    cd ../..
 
-   # get test input file``\ ```input.nw`` <https://bluewaters.ncsa.illinois.edu/liferay-content/image-gallery/content/input.nw>`__\ ``.``
-   wget https://bluewaters.ncsa.illinois.edu/liferay-content/image-gallery/content/input.nw
+   # use a heredoc to create the test input file input.nw
+   cat << EOF > input.nw
+   start guanine
+   memory total 2000 MB  global 1500 MB
+
+   title "guanine molecule MP2/6-311++G** optimized"
+
+   geometry
+   H     2.53990943     1.81612952    -0.03603309
+   N     1.53491517     1.70711802    -0.01439495
+   C     0.58326878     2.70125519    -0.01071739
+   N    -0.65372605     2.23059061     0.01237075
+   C    -0.48791625     0.86409028     0.03207422
+   C    -1.47741654    -0.18802307    -0.00084033
+   N    -0.81292365    -1.45618262     0.03459304
+   C     0.54207616    -1.67606401     0.01606196
+   N     1.43956105    -0.72422698     0.01693488
+   C     0.86318483     0.51291841    -0.00091378
+   H     0.85261439     3.74864971    -0.02225421
+   O    -2.69273986    -0.13623948    -0.04504172
+   N     0.93784894    -3.00204830    -0.06751858
+   H     1.93349427    -3.10150657     0.08438005
+   H     0.39727060    -3.64903707     0.49191052
+   H    -1.43645739    -2.24608584    -0.09555577
+   end
+
+   basis spherical
+     * library  6-311++G**
+   end
+
+   scf
+     noprint "final vectors analysis"
+   end
+
+   ccsd
+     freeze core atomic
+     maxiter 50
+   #  thresh 1000.0d0
+   end
+
+   #set ccsd:niter 10
+   set ccsd:useinmemst2 T
+   #set ccsd:usediskst2  F
+   set ccsd:st2parallel T
+
+   task ccsd energy
+   EOF
 
    # submit interactive job
    qsub -q debug -I -l nodes=10:ppn=32:xe -l walltime=00:30:00
