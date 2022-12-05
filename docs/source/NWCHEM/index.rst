@@ -165,6 +165,6 @@ check for results
 
 ::
 
-   grep " Total CCSD energy" output.nw
+   grep "Total CCSD energy" output.nw
 
 output.nw: Total CCSD energy: -541.280804058835315
