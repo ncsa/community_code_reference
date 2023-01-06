@@ -9,8 +9,8 @@ page <http://yt-project.org/doc/>`__. From that site: "yt was designed
 to be a completely Free ... user-extensible framework for analyzing and
 visualizing astrophysical data, currently working with several different
 codes, including the "flagship" codes Enzo, Orion, Nyx and FLASH. It
-relies on no proprietary software � although it can be and has been
-extended to interface with proprietary software and libraries � and has
+relies on no proprietary software although it can be and has been
+extended to interface with proprietary software and libraries and has
 been designed from the ground up to enable users to be as immersed in
 the data as they desire."
 
@@ -25,7 +25,7 @@ the purpose of creating a specific plot. The plot is further emphasized
 in that an analysis starts only after a plot is added and culminates
 when the plot is drawn. From yt's documentation: "While the heart of yt
 is the large set of basic code, physical, reduced, and plot objects
-already developed, in a metaphorical sense, its �soul' is the fact that
+already developed, in a metaphorical sense, its soul' is the fact that
 any of the objects can be used as starting points for creating fields
 and quantities of your own devices."
 
