@@ -71,17 +71,13 @@ C.1 Building the CPU-code under GNU environment
 The latest successful compilation was conducted under the
    following environment:
 
+:: 
 
       PrgEnv-gnu/5.2.40
-
       gcc/4.8.2
-
       cray-mpich/7.2.0
-
       fftw/3.3.4.1
-
       cmake/3.1.3
-
       boost/1.53.0
 
 
@@ -89,49 +85,45 @@ The latest successful compilation was conducted under the
  
          - Configure programming environment
 
-         module swap PrgEnv-cray PrgEnv-gnu
+:: 
 
-         module add fftw
-
-         module add cmake
-
-         module add boost
-
-         module add cudatoolkit
+    module swap PrgEnv-cray PrgEnv-gnu
+    module add fftw
+    module add cmake
+    module add boost
+    module add cudatoolkit
 
 - Run cmake and make after that
 
-         cd $HOME/rmg/rmg-release1.2.0
+:: 
 
-         mkdir build-gpu
-
-         cd build-gpu
+   cd $HOME/rmg/rmg-release1.2.0
+   mkdir build-gpu
+   cd build-gpu
 
 - Edit ../CMakelists.txt and set RMG_GPU_ENABLED to 1
 
          - Run cmake and make after that
          cmake ..
 
-         make -j 16
+:: 
+
+    make -j 16
 
 - Executable file **rmg** will be generated
 
-            The latest successful compilation was conducted under the
+The latest successful compilation was conducted under the
             following environment:
 
-            PrgEnv-gnu/5.2.40
+::
 
-            gcc/4.8.2
-
-            cray-mpich/7.2.0
-
-            fftw/3.3.4.1
-
-            cmake/3.1.3
-
-            boost/1.53.0
-
-            cudatoolkit/6.5.14-1.0502.9613.6.1
+   PrgEnv-gnu/5.2.40
+   gcc/4.8.2
+   cray-mpich/7.2.0
+   fftw/3.3.4.1
+   cmake/3.1.3
+   boost/1.53.0
+   cudatoolkit/6.5.14-1.0502.9613.6.1
 
  D. Tests
 
