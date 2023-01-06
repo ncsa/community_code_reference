@@ -30,90 +30,48 @@ gives a short description of how you would submit a simulation run. If
 desired, you can look at the files it generates to understand how to
 customize your own job script.  
 
-.. container::
-   :name: cke_pastebin
+Jim Phillips provides a tool called runbatch that generates and runs
+a job script for you. 
 
-   Jim Phillips provides a tool called runbatch that generates and runs
-   a job script for you. 
+There are 4 variations: 
 
-.. container::
-   :name: cke_pastebin
+XE CPU run: 
 
-    
+::
 
-.. container::
-   :name: cke_pastebin
+   ~jphillip/NAMD_scripts/runbatch
 
-   There are 4 variations: 
+XK GPU run: 
 
-.. container::
+::
 
-   XE CPU run: ``~jphillip/NAMD_scripts/runbatch``
+   ~jphillip/NAMD_scripts/runbatch_cuda
 
-.. container::
+Memory-optimized XE CPU run (requires memory-optimized input file preparation): 
 
-   XK GPU run: ``~jphillip/NAMD_scripts/runbatch_cuda``
+::
 
-.. container::
+   jphillip/NAMD_scripts/runbatch_memopt
 
-   Memory-optimized XE CPU run\ `` ``\ (requires memory-optimized input
-   file preparation): ``~jphillip/NAMD_scripts/runbatch_memopt``
+Memory-optimized XK GPU run (memory-optimized input):
 
-.. container::
-   :name: cke_pastebin
+::
 
-   Memory-optimized XK GPU run (memory-optimized input):
-   ``~jphillip/NAMD_scripts/runbatch_memopt_cuda ``
+   ~jphillip/NAMD_scripts/runbatch_memopt_cuda
 
-.. container::
-   :name: cke_pastebin
+Run each command without options to see the list of input parameters 
 
-    
+For example, to simulate the system described in mysim.namd using 400 XE nodes, I would run: 
 
-.. container::
-   :name: cke_pastebin
+::
 
-   Run each command without options to see the list of input parameters 
+   ~jphillip/NAMD_scripts/runbatch mysim.namd mysim.log 400 4 normal
 
-.. container::
-   :name: cke_pastebin
-
-    
-
-.. container::
-   :name: cke_pastebin
-
-   For example, to simulate the system described in mysim.namd using 400
-   XE nodes, I would run: 
-
-.. container::
-   :name: cke_pastebin
-
-    
-
-.. container::
-   :name: cke_pastebin
-
-   ``~jphillip/NAMD_scripts/runbatch mysim.namd mysim.log 400 4 normal ``
-
-.. container::
-   :name: cke_pastebin
-
-    
-
-.. container::
-   :name: cke_pastebin
-
-   When you run the command, it will generate a script, which is output
-   to the screen, and submit that script as a job. To capture the script
-   so that you can customize it, you can redirect the output of runbatch
-   and edit out everything before "#!/bin/tcsh" and everything after the
-   final "aprun ..." line. 
-
-.. container::
-   :name: cke_pastebin
-
-    
+When you run the command, it will generate a script, which is output
+to the screen, and submit that script as a job. To capture the script
+so that you can customize it, you can redirect the output of runbatch
+and edit out everything before "#!/bin/tcsh" and everything after the
+final "aprun ..." line. 
 
 Building NAMD
 -------------
@@ -126,19 +84,22 @@ Building NAMD
    release that fixes a number of BW-related bugs. 
 #. Unpack NAMD and cd to the extracted directory 
 #. Extract NAMD source:
-   ``tar zxvf NAMD_CVS-2014-11-12_Source.tar.gz ``
+   tar zxvf NAMD_CVS-2014-11-12_Source.tar.gz 
 #. Go to extracted directory:
-   ``cd NAMD_CVS-2014-11-12_Source``
+   cd NAMD_CVS-2014-11-12_Source
 #. Obtain a tweaked version of the Tcl library:
-   ``wget http://www.ks.uiuc.edu/Research/namd/libraries/tcl8.5.9-crayxe-threaded.tar.gz``
+   wget http://www.ks.uiuc.edu/Research/namd/libraries/tcl8.5.9-crayxe-threaded.tar.gz
 #. Unpack the Tcl library and set up a link to the extracted directory:
-   ``tar zxvf tcl8.5.9-crayxe-threaded.tar.gz; ln -s tcl8.5.9-crayxe-threaded ./tcl``
+   tar zxvf tcl8.5.9-crayxe-threaded.tar.gz; ln -s tcl8.5.9-crayxe-threaded ./tcl
 #. Select the proper modules for compilation:
-   ``module swap PrgEnv-cray PrgEnv-gnu; module load fftw rca craype-hugepages8M``
+   module swap PrgEnv-cray PrgEnv-gnu; module load fftw rca craype-hugepages8M
 #. Extract the version of Charm++ included in the NAMD source
    distribution:
-   ``tar xvf charm-6.6.1.tar``
+   tar xvf charm-6.6.1.tar
 #. Build charm++:
-   ``cd charm-6.6.1; ./build charm++ gni-crayxe smp persistent -j16 --with-production; cd .. ``
+   cd charm-6.6.1; ./build charm++ gni-crayxe smp persistent -j16 --with-production; cd .. 
 #. Build NAMD:
-   ``./config CRAY-XE-gnu --with-fftw --with-fftw3 --fftw-prefix $FFTW_DIR/.. \       --charm-arch gni-crayxe-persistent-smp; cd CRAY-XE-gnu/; gmake -j16``
+   
+::
+
+   ./config CRAY-XE-gnu --with-fftw --with-fftw3 --fftw-prefix $FFTW_DIR/.. --charm-arch gni-crayxe-persistent-smp; cd CRAY-XE-gnu/; gmake -j16
