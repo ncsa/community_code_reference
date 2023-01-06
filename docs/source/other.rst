@@ -119,8 +119,7 @@ Examples (coming soon)
 PETSc
 -----
 
-`PETSc <http://www.mcs.anl.gov/petsc/petsc-as/>`__
-` <https://www.mcs.anl.gov/petsc/>`__ , the Portable, Extensible Toolkit
+`PETSc <https://www.mcs.anl.gov/petsc/>`_ , the Portable, Extensible Toolkit
 for Scientific computation, is provided as part of the Cray Programming
 Environment software stack. It provides sets of tools for the parallel
 (as well as serial), numerical solution of PDEs that require solving
