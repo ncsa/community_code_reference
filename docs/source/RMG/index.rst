@@ -1,7 +1,7 @@
 RMG
 ===
 
-A. Description
+Description
 ~~~~~~~~~~~~~~
 
 RMG is a density functional theory (DFT) based electronics structure
@@ -16,7 +16,7 @@ RMG source code, precompiled binaries for Microsoft Windows and some
 Linux systems, and examples can be found at
 http://rmgdft.sourceforge.net
 
-B. How to download RMG
+How to download RMG
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Executable binaries for Blue Waters are available for downloading.
@@ -35,16 +35,16 @@ Download and unpack the source code:
    wget http://sourceforge.net/projects/rmgdft/files/Releases/1.2/Sources/rmg-release1.2.0.tar.gz/download
    tar zxvf rmg-release1.2.0.tar.gz
 
-C. How to build RMG
+How to build RMG
 ~~~~~~~~~~~~~~~~~~~
 
 On Blue Waters, RMG can be built under GNU programming environment.
 
-C.1 Building the CPU-code under GNU environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Building the CPU-code under GNU environment
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
-   - Configure programming environment
+- Configure programming environment
 
 ::
 
@@ -53,7 +53,7 @@ C.1 Building the CPU-code under GNU environment
    module add cmake
    module add boost
 
-   - Run cmake and make after that
+- Run cmake and make after that
 
 ::
 
@@ -64,12 +64,11 @@ C.1 Building the CPU-code under GNU environment
    make -j 16
 
 
-
-   - Executable file **rmg** will be generated
+- Executable file **rmg** will be generated
 
 
 The latest successful compilation was conducted under the
-   following environment:
+following environment:
 
 :: 
 
@@ -81,9 +80,10 @@ The latest successful compilation was conducted under the
       boost/1.53.0
 
 
- C.2 Building the GPU-code under GNU environment
- 
-         - Configure programming environment
+Building the GPU-code under GNU environment
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
+
+- Configure programming environment
 
 :: 
 
@@ -103,12 +103,12 @@ The latest successful compilation was conducted under the
 
 - Edit ../CMakelists.txt and set RMG_GPU_ENABLED to 1
 
-         - Run cmake and make after that
-         cmake ..
+- Run cmake and make after that
 
 :: 
 
-    make -j 16
+   cmake ..
+   make -j 16
 
 - Executable file **rmg** will be generated
 
@@ -125,7 +125,8 @@ The latest successful compilation was conducted under the
    boost/1.53.0
    cudatoolkit/6.5.14-1.0502.9613.6.1
 
- D. Tests
+Tests
+$$$$$$$$$
 
 RMG source code comes with input examples. One of those will be used to
 demonstrate the use of RMG on Blue Waters.
