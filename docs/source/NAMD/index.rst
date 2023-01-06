@@ -84,20 +84,33 @@ Building NAMD
    release that fixes a number of BW-related bugs. 
 #. Unpack NAMD and cd to the extracted directory 
 #. Extract NAMD source:
+
    tar zxvf NAMD_CVS-2014-11-12_Source.tar.gz 
+
 #. Go to extracted directory:
+
    cd NAMD_CVS-2014-11-12_Source
+
 #. Obtain a tweaked version of the Tcl library:
+
    wget http://www.ks.uiuc.edu/Research/namd/libraries/tcl8.5.9-crayxe-threaded.tar.gz
+
 #. Unpack the Tcl library and set up a link to the extracted directory:
+
    tar zxvf tcl8.5.9-crayxe-threaded.tar.gz; ln -s tcl8.5.9-crayxe-threaded ./tcl
+
 #. Select the proper modules for compilation:
+
    module swap PrgEnv-cray PrgEnv-gnu; module load fftw rca craype-hugepages8M
-#. Extract the version of Charm++ included in the NAMD source
-   distribution:
+
+#. Extract the version of Charm++ included in the NAMD source distribution:
+
    tar xvf charm-6.6.1.tar
+
 #. Build charm++:
+
    cd charm-6.6.1; ./build charm++ gni-crayxe smp persistent -j16 --with-production; cd .. 
+
 #. Build NAMD:
    
 ::
